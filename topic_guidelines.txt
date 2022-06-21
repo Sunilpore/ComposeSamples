@@ -1,4 +1,16 @@
 
 # Basics of Compose
-- Setup Compose Project
-- Row, Column and Basic Modifiers
+1] Setup Compose Project
+
+2] Row, Column and Basic Modifiers
+  - width(dp), height(dp)
+  - fillMaxHeight(%), fillMaxWidth(%)
+  - requiredWidth(dp)
+  - paddng(top,left,bottom,right) (dp).
+    In Compose there is no margin attribute available
+  - offset
+   (It is not similar to margin. It changes orientation of applied widget without impacting or affecting its neighbours widgets)
+
+ 3] Modifiers
+   - Use Nested view hierarchy
+   - Use Border modifier and Spacer Widget

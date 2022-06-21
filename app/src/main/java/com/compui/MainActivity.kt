@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.MaterialTheme
@@ -25,7 +26,7 @@ class MainActivity : ComponentActivity() {
 
 
             //Row View
-            Row(
+            /*Row(
                 modifier = Modifier
                     .width(200.dp)
                     .height(300.dp)
@@ -36,22 +37,37 @@ class MainActivity : ComponentActivity() {
                 Text(text = "Welcome")
                 Text(text = " To")
                 Text(text = " Here")
-            }
+            }*/
             
             
             //Column View
-            /*Column(
+
+            //Nested view chains
+            Column(
                 modifier = Modifier
-                    .width(300.dp)
-                    .fillMaxHeight(0.7f)  //Set height in percentage of fraction of Total avlaible height
-                    .background(Color.Magenta),
-                horizontalAlignment = Alignment.CenterHorizontally,
-                verticalArrangement = Arrangement.SpaceAround
+                    .background(Color.Green)
+                    .fillMaxHeight(0.5f)  //Set height in percentage of fraction of Total available height
+                    .fillMaxWidth()
+                    .border(5.dp, Color.Blue)
+                    .padding(5.dp)
+                    .border(5.dp, Color.Yellow)
+                    .padding(5.dp)
+                    .border(5.dp, Color.DarkGray)
+                    .padding(10.dp),
+//                horizontalAlignment = Alignment.CenterHorizontally,
+//                verticalArrangement = Arrangement.SpaceAround
             ) {
-                Text(text = "Learn")
+                Text(text = "Learn", modifier = Modifier
+                    .border(5.dp, Color.Magenta)
+                    .padding(5.dp)
+                    .offset(20.dp, 20.dp)
+                    .border(5.dp, Color.LightGray)
+                    .padding(10.dp))
+                Spacer(modifier = Modifier.height(20.dp))
                 Text(text = "Compose")
+                Spacer(modifier = Modifier.height(20.dp))
                 Text(text = "Info")
-            }*/
+            }
 
         }
     }
