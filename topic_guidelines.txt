@@ -14,3 +14,7 @@
  3] Modifiers
    - Use Nested view hierarchy
    - Use Border modifier and Spacer Widget
+
+ 4] Creating an Composable Image Card
+    - Box (for auto-size widget views) , Card widget
+    - Use Brush Widget For Gradient
