@@ -18,3 +18,7 @@
  4] Creating an Composable Image Card
     - Box (for auto-size widget views) , Card widget
     - Use Brush Widget For Gradient
+
+ 5] Text Style
+    - Add Font Family and use it
+    - Use 'buildAnnotatedString' for providing Spannable effect to Strig character
