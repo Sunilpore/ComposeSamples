@@ -22,3 +22,6 @@
  5] Text Style
     - Add Font Family and use it
     - Use 'buildAnnotatedString' for providing Spannable effect to Strig character
+
+ 6] Compose State
+    - use remember, mutableStateOf() methods for state managemnet
