@@ -3,22 +3,13 @@ package com.compui
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
+import androidx.compose.foundation.layout.*
+import androidx.compose.material.*
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.text.font.FontStyle
-import androidx.compose.ui.unit.sp
-import kotlin.random.Random
+import androidx.compose.ui.unit.dp
+import kotlinx.coroutines.launch
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,63 +18,50 @@ class MainActivity : ComponentActivity() {
         setContent {
 
             //---------------------------------------------------------------------//
-            //->Compose State
+            //-> TextField, Button and Snackbar Widget
 
-            val colorBg = remember { mutableStateOf(Color.Magenta) }
+            val scaffoldState = rememberScaffoldState()
 
-            Column(Modifier.fillMaxSize()) {
+            var textFieldState by remember { mutableStateOf("") }
 
-                ColorBox(
-                    Modifier
-                        .weight(1f)
-                        .fillMaxSize()
-                ) {
-                    colorBg.value = it
-                }
+            val scope = rememberCoroutineScope()
 
-                Box(
+            Scaffold(
+                modifier = Modifier.fillMaxSize(),
+                scaffoldState = scaffoldState
+            ) {
+
+                Column(
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                    verticalArrangement = Arrangement.Center,
                     modifier = Modifier
-                        .background(colorBg.value)
-                        .weight(1f)
                         .fillMaxSize()
-                )
-
+                        .padding(horizontal = 30.dp)
+                ) {
+                    TextField(
+                        value = textFieldState,
+                        label = {
+                            Text(text = "Enter your name")
+                        },
+                        onValueChange = {
+                            textFieldState = it
+                        },
+                        singleLine = true,
+                        modifier = Modifier.fillMaxWidth()
+                    )
+                    Spacer(modifier = Modifier.height(16.dp))
+                    Button(onClick = {
+                        scope.launch {
+                            scaffoldState.snackbarHostState.showSnackbar("Hello $textFieldState")
+                        }
+                    }) {
+                        Text(text = "Click me")
+                    }
+                }
             }
 
 
         }
-    }
-}
-
-
-@Composable
-fun ColorBox(
-    modifier: Modifier = Modifier,
-    colorUpdateCallback: (Color) -> Unit
-) {
-
-    Box(
-        modifier = modifier
-            .background(Color.LightGray)
-            .clickable {
-                colorUpdateCallback(
-                    Color(
-                        Random.nextFloat(),
-                        Random.nextFloat(),
-                        Random.nextFloat(),
-                        1f,
-                    )
-                )
-            },
-        contentAlignment = Alignment.Center
-    ) {
-        Text(
-            text = "Click Here To Change Color",
-            style = TextStyle(
-                color = Color(0xFF6F460A),
-                fontSize = 30.sp,
-                fontStyle = FontStyle.Italic)
-        )
     }
 
 }

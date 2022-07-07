@@ -25,3 +25,10 @@
 
  6] Compose State
     - use remember, mutableStateOf() methods for state managemnet
+
+ 7] Textfields, Buttons & Showing Snackbars
+    - Use Scaffold Container to show Snackbar
+    - Use TextFields for hint and allow user to enter text
+    - Use Button Widget along with scafold state to show snackbar
+    - Use remember scopes i.e. rememberScaffoldState,rememberCoroutineScope, etc.
+      Also use remember state delegation
