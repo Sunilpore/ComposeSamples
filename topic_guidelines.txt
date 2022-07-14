@@ -32,3 +32,10 @@
     - Use Button Widget along with scafold state to show snackbar
     - Use remember scopes i.e. rememberScaffoldState,rememberCoroutineScope, etc.
       Also use remember state delegation
+
+ 8] Column
+    - Use as a replacement of ListView, Recyclerview
+    - Column
+    - LazyColumn
+      I] It will quite faster than Column and no need to define scroll direction as it has by default
+      II] It will also provide item with Index position

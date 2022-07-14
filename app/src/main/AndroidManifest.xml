@@ -9,9 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ComposeSample">
-        <activity
-            android:name=".ComposeActivity"
-            android:exported="false" />
+
         <activity
             android:name=".MainActivity"
             android:exported="true"
@@ -23,6 +21,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".ComposeActivity" />
+        <activity android:name=".sample.ComposeStateActivity" />
+        <activity android:name=".sample.SnackBarActivity" />
+
     </application>
 
 </manifest>

@@ -1,4 +1,4 @@
-package com.compui
+package com.compui.sample
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
