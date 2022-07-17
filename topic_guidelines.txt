@@ -39,3 +39,6 @@
     - LazyColumn
       I] It will quite faster than Column and no need to define scroll direction as it has by default
       II] It will also provide item with Index position
+
+ 9] ConstaintLayout
+    - Add ConstaintSet, chain, guideline attributes

@@ -3,20 +3,16 @@ package com.compui
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.itemsIndexed
-import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.verticalScroll
-import androidx.compose.material.*
-import androidx.compose.runtime.*
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.layoutId
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
-import kotlinx.coroutines.launch
+import androidx.constraintlayout.compose.ChainStyle
+import androidx.constraintlayout.compose.ConstraintLayout
+import androidx.constraintlayout.compose.ConstraintSet
+import androidx.constraintlayout.compose.Dimension
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,67 +21,77 @@ class MainActivity : ComponentActivity() {
         setContent {
 
             //---------------------------------------------------------------------//
-            //List example by using Column and Lazy Column//
+            //-> ConstraintLayout
 
+            Column(modifier = Modifier.fillMaxSize()) {
 
-            //---------------------------------------------------------------------//
-            //--> Column List
-            /*val scrollState = rememberScrollState()
+                val constraints = ConstraintSet {
+                    val yellowBox = createRefFor("yellowbox")
+                    val redBox = createRefFor("redbox")
 
-            Column(
-                modifier = Modifier.verticalScroll(scrollState)
-            ) {
+                    constrain(yellowBox) {
+                        top.linkTo(parent.top)
+                        start.linkTo(parent.start)
+                        width = Dimension.value(100.dp)
+                        height = Dimension.value(100.dp)
+                    }
 
-                for (i in 1..50){
-                    Text(
-                        text = " Item $i",
-                        fontSize = 24.sp,
-                        fontWeight = FontWeight.Bold,
-                        textAlign = TextAlign.Center,
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(vertical = 24.dp))
+                    constrain(redBox) {
+                        top.linkTo(parent.top)
+                        bottom.linkTo(yellowBox.bottom)
+                        start.linkTo(yellowBox.end)
+                        width = Dimension.value(100.dp)
+                        height = Dimension.fillToConstraints
+                    }
+
+                    //----------------------------------------------------------//
+
+                    val greenBox = createRefFor("greenbox")
+                    val magentaBox = createRefFor("magentabox")
+                    val guidelines = createGuidelineFromTop(0.5f)
+
+                    constrain(greenBox) {
+                        top.linkTo(guidelines)
+                        start.linkTo(parent.start)
+                        width = Dimension.value(100.dp)
+                        height = Dimension.value(100.dp)
+                    }
+
+                    constrain(magentaBox) {
+                        top.linkTo(greenBox.top)
+                        bottom.linkTo(greenBox.bottom)
+                        start.linkTo(greenBox.end)
+                        width = Dimension.value(100.dp)
+                        height = Dimension.fillToConstraints
+                    }
+
+                    createHorizontalChain(greenBox,magentaBox, chainStyle = ChainStyle.Spread)
+
                 }
-            }*/
 
-            //---------------------------------------------------------------------//
-            //--> LazyColumn
+                ConstraintLayout(constraints, modifier = Modifier.fillMaxSize()) {
+                    Box(modifier = Modifier
+                        .background(Color.Yellow)
+                        .layoutId("yellowbox"))
+                    Box(modifier = Modifier
+                        .background(Color.Red)
+                        .layoutId("redbox"))
 
-            /*LazyColumn {
-                items(500) {
-                    Text(
-                        text = " Item $it",
-                        fontSize = 24.sp,
-                        fontWeight = FontWeight.Bold,
-                        textAlign = TextAlign.Center,
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(vertical = 24.dp))
+                    Box(modifier = Modifier
+                        .background(Color.Green)
+                        .layoutId("greenbox"))
+                    Box(modifier = Modifier
+                        .background(Color.Magenta)
+                        .layoutId("magentabox"))
                 }
-            }*/
 
 
-            //---------------------------------------------------------------------//
-            //-> LazyColumn with Index Position
-
-            LazyColumn {
-                itemsIndexed(
-                    listOf("Compose","Navigation","Room","Hilt")
-                ) { index,itemName->
-
-                    Text(
-                        text = "${index+1}. $itemName",
-                        fontSize = 24.sp,
-                        fontWeight = FontWeight.Bold,
-                        textAlign = TextAlign.Center,
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(vertical = 24.dp))
-                }
             }
 
 
-            }
+
+
+        }
 
         }
 
