@@ -1,4 +1,4 @@
-package com.compui.ui.theme
+package com.compui.effecthandlers.ui.theme
 
 import androidx.compose.material.Typography
 import androidx.compose.ui.text.TextStyle

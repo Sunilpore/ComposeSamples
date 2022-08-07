@@ -22,10 +22,6 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".ComposeActivity" />
-        <activity android:name=".sample.ComposeStateActivity" />
-        <activity android:name=".sample.SnackBarActivity" />
-
     </application>
 
 </manifest>
