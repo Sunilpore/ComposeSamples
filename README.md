@@ -2,14 +2,9 @@
 Sample examples of Compose
 
 
-#Navigation graph Documentation
+#Jetpack Compose Permissions 
+* https://google.github.io/accompanist/permissions/
 
-* https://medium.com/@muhamed.riyas/navigation-component-the-complete-guide-c51c9911684
-
-* https://developer.android.com/guide/navigation/migrate
-
-* https://blog.codemagic.io/android-navigation-introduction/#
-
-
-#Navigation Compose 
-* https://medium.com/@jpmtech/navigation-in-jetpack-compose-c9e1fcfd2cdd
+# Correspondence Article 
+* https://medium.com/@myofficework000/permissions-with-jetpack-compose-79820a249ae7
+* https://medium.com/@lukohnam/jetpack-compose-permissions-using-accompanist-library-b1c0fbbe8831
