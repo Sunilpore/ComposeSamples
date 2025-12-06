@@ -2,18 +2,11 @@
 Sample examples of Compose
 
 
-#Navigation graph Documentation
+#State Flow vs Shared Flow Basic Example
 
-* https://medium.com/@muhamed.riyas/navigation-component-the-complete-guide-c51c9911684
+Component Added
+- compose
+- State flow
+- Shared flow
+- ViewModel
 
-* https://developer.android.com/guide/navigation/migrate
-
-* https://blog.codemagic.io/android-navigation-introduction/#
-
-
-#Navigation Compose 
-* https://medium.com/@jpmtech/navigation-in-jetpack-compose-c9e1fcfd2cdd
-
-#Kotlin Serialization
-* https://kotlinlang.org/docs/serialization.html#example-json-serialization
- (It is used here with Navigation libarary)
