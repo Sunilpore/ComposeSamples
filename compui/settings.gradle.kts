@@ -19,5 +19,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "CompUI"
+rootProject.name = "ComposeUI"
 include(":app")
